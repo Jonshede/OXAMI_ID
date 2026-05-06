@@ -1,0 +1,49 @@
+﻿Förslag
+
+OXAMI_ID/
+│
+├── OXAMI.Data/                         <-- Klassbibliotek (Data Access Layer)
+│   ├── OxaInnovation.Data.csproj
+│   ├── AppDbContext.cs                 <-- Er EF Core DbContext
+│   ├── oxa_data.db                     <-- Själva SQLite-filen (skapas automatiskt)
+│   │
+│   └── Migrations/                     <-- Automatiska EF Core-filer
+│       └── [Datum]_InitialCreate.cs
+│
+├── OXAMI.Logic/                        <-- Klassbibliotek (Business Logic Layer)
+│   ├── OxaInnovation.Logic.csproj
+│   │
+│   ├── Models/                         <-- Rena C#-klasser (OOP2-fokus)
+│   │   ├── AmmunitionType.cs           <-- Id, Namn, Form, Material, Land, RiskZon, Bildsökväg
+|   |   |── MineType.cs                 <-- Id, Namn, Form, Material, Land, RiskZon, Bildsökväg
+│   │   ├── Report.cs                   <-- Koordinater, Id, Status, Tidpunkt                            SKA VI HA?
+│   │   └── StoryNode.cs                <-- För ert branching-narrative
+│   │
+│   └── Services/                       <-- Hanterar affärsregler och datahämtning
+│       ├── OxaService.cs               <-- Hämtar/Sparar i SQLite via Data-lagret
+│       └── ScenarioService.cs          <-- Hanterar story-noder och poäng
+│
+└── OXAMI.App/                          <-- .NET MAUI Blazor Hybrid (Presentation)
+    ├── OxaInnovation.App.csproj        <-- Refererar till Logic-projektet
+    ├── MauiProgram.cs                  <-- Startar appen och registrerar era Services
+    │
+    ├── Platforms/                      <-- Specifik kod för Android/iOS/Windows                        TA BORT
+    │
+    ├── Resources/                      <-- Bilder, ikoner och offline-material
+    │   └── Images/
+    │       └── oxa/                    <-- Bilder på ammunitionstyper för offline-bruk
+    │
+    └── wwwroot/                        <-- Statiska filer för ert webb-UI
+    │   ├── index.html                  <-- Huvudsidan där Google Maps API laddas in
+    │   ├── css/                        <-- Bootstrap eller egen CSS för design
+    │   └── js/                         <-- JavaScript för Google Maps
+    │
+    └── Components/                     <-- Era gränssnittskomponenter (.razor)
+        ├── Pages/                      <-- Sidlayouter för appen
+        │   ├── Home.razor              <-- Startsida med "Panic Button"
+        │   ├── Register.razor          <-- Visar er offline-tabell med minor
+        │   ├── Map.razor               <-- Kartvyn med Google Maps och GPS
+        │   └── Training.razor          <-- Ert branching narrative (spelet)
+        │
+        └── Shared/                     <-- Återanvändbara UI-komponenter
+            └── NavMenu.razor           <-- Sidomeny för navigering
