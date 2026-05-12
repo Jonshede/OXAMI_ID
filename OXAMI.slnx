@@ -1,7 +1,5 @@
 <Solution>
   <Project Path="OXAMI.Data/OXAMI.Data/OXAMI.Data.csproj" Id="c9bc187a-b5d8-4922-9337-a72c7510230f" />
   <Project Path="OXAMI.Logic/OXAMI.Logic/OXAMI.Logic.csproj" Id="9103188c-1ed4-4758-afa0-7bee01a760ae" />
-  <Project Path="OXAMI.Maui/OXAMI.Maui.csproj">
-    <Deploy Solution="Debug|*" />
-  </Project>
+  <Project Path="OXAMI.Presentation/OXAMI.Presentation.csproj" Id="8fdf5ed4-d3f1-47a2-8c09-05f3209aea36" />
 </Solution>
