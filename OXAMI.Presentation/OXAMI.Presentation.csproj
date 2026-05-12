@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Data\data.json" />
+    <Content Remove="wwwroot\Data\data.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Data\data.json" />
+    <None Include="wwwroot\Data\data.json" />
+    <None Include="wwwroot\js\mapFunctions.js" />
   </ItemGroup>
 
   <ItemGroup>

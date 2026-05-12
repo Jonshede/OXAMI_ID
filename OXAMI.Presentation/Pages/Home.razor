@@ -4,21 +4,72 @@
 @inject MapService MapService
 
 <div class="map-container">
-    <div id="google-map" style="height: 100%; width: 100%;">
-        <div class="p-4 text-center">Laddar lägesbild...</div>
-    </div>
+    <div id="leaflet-map" style="height: 100%; width: 100%;"></div>
+
+    <button class="fab-button" @onclick="ToggleEventList">!</button>
+
+    @if (showEvents)
+    {
+        <div class="event-panel">
+            <div class="event-header">
+                <div class="header-spacer-small"></div>
+                <h5>Aktuella händelser</h5>
+                <button class="close-panel-btn" @onclick="ToggleEventList">&times;</button>
+            </div>
+
+            <div class="event-list">
+                @if (riskAreas == null || !riskAreas.Any())
+                {
+                    <p class="text-muted p-3">Inga pågående händelser i närområdet.</p>
+                }
+                else
+                {
+                    @foreach (var area in riskAreas)
+                    {
+                        <div class="event-item">
+                            <span class="badge @(area.Severity == "Hög" ? "bg-danger" :
+                                                               area.Severity == "Medel" ? "bg-warning text-dark" :
+                                                               "bg-accent text-dark")">
+                                @area.Severity
+                            </span>
+                            <h6>@area.Title</h6>
+                            <p>@area.Description</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
 </div>
 
 @code {
+    private bool showEvents = false;
+    private List<RiskArea> riskAreas = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Hämtar data från din logik-tjänst
+        riskAreas = await MapService.GetRiskAreasAsync();
+    }
+
+    private void ToggleEventList() => showEvents = !showEvents;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            // Hämta zoner via logiklagret (som i sin tur hämtar från datalagret)
-            var zones = await MapService.GetRiskZonesAsync();
+            try
+            {
+                // Hämta zoner via logiklagret (som i sin tur hämtar från datalagret)
+                var areas = await MapService.GetRiskAreasAsync();
 
-            // Anropa JavaScript-funktionen i mapFunctions.js
-            await JS.InvokeVoidAsync("initMap", zones);
+                // Anropa JavaScript-funktionen i mapFunctions.js
+                await JS.InvokeVoidAsync("initMap", areas);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Kunde inte ladda koordinater: {ex.Message}");
+            }
         }
     }
 }

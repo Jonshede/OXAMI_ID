@@ -1,4 +1,4 @@
-/* Color-scheme for prototype */
+/* Färgschema */
 :root {
     --myndighet-dark: #002F5F;
     --myndighet-accent: #FFD100;
@@ -16,8 +16,21 @@ body {
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
+.mobile-container {
+    width: 390px;
+    height: 844px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    border-radius: 30px;
+    border: 12px solid #222;
+    position: relative;
+    overflow: hidden;
+}
+
 .app-header {
-    background-color: #002F5F; /* Myndighetsblå */
+    background-color: #002F5F;
     color: white;
     padding: 15px;
     display: flex;
@@ -26,17 +39,12 @@ body {
     font-weight: bold;
 }
 
-.mobile-container {
-    width: 390px; /* Standardbredd för iPhone 13/14/15 */
-    height: 844px; /* Standardhöjd */
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    border-radius: 30px;
-    border: 12px solid #222; /* Mobilens fysiska ram */
-    position: relative;
-    overflow: hidden;
+/* HEADER */
+.brand {
+    flex-grow: 1;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .status-dot {
@@ -46,21 +54,31 @@ body {
     border-radius: 50%;
 }
 
-/* Justera Main-ytan */
+.status-dot, .header-spacer {
+    width: 8px;
+    height: 8px;
+}
+
+.header-spacer {
+    visibility: hidden; 
+}
+/* HEADER */
+
+/* MAIN */
 main {
     flex: 1;
     overflow-y: auto;
     padding-bottom: 70px;
 }
 
-/* Se till att kartan fyller sin container i mobilen */
 .map-container {
     flex: 1;
     width: 100%;
     height: 100%;
 }
+/* MAIN */
 
-/* Botten-navigering */
+/* BOTTOM */
 .bottom-nav {
     position: absolute;
     bottom: 0;
@@ -71,30 +89,134 @@ main {
     display: flex;
 }
 
-/* Menyn i botten*/
+
 .nav-wrapper {
     display: flex;
     width: 100%;
-    justify-content: space-around;
-    align-items: center;
+    height: 100%;
+    background-color: #ffffff;
 }
 
-.nav-item {
+.nav-link {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: #666;
-    font-size: 0.75rem;
+    justify-content: center;
+    text-decoration: none !important;
+    color: #B4B4CC;
+    transition: all 0.2s ease;
+    border-top: 3px solid transparent; 
 }
 
-.nav-item.active {
+.nav-link:hover {
+    background-color: #f0f4f8;
     color: #002F5F;
 }
 
-.nav-item .oi {
-    font-size: 1.2rem;
-    margin-bottom: 4px;
+.nav-link.active {
+    color: #002F5F !important;
+    background-color: #e6eff7;
+    border-top: 3px solid #002F5F; 
+    font-weight: 600;
+}
+
+.nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+/* BOTTOM */
+
+/* FAB */
+.fab-button {
+    position: absolute;
+    bottom: 90px;
+    left: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #d9534f; /* Röd färg för uppmärksamhet */
+    color: white !important;
+    font-size: 35px !important;
+    font-weight: 900 !important;
+    font-family: 'Arial Black', sans-serif;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* Se till att den ligger ovanpå kartan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.event-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    height: 60%;
+    z-index: 1001;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Header-layout för panelen */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.event-header h5 {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 800;
+    color: #002F5F;
+    margin: 0;
+}
+
+.close-panel-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+    padding: 0 5px;
+    width: 30px; /
+}
+
+.close-panel-btn:hover {
+    color: #d9534f;
+}
+
+.header-spacer-small {
+    width: 30px;
+    visibility: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+/* FAB */
+
+.bg-accent {
+    background-color: #ffd100;
+    color: #333; /* Mörk text för god läsbarhet mot gul bakgrund */
 }
 
 /* Handles error-placement */

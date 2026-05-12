@@ -11,9 +11,9 @@ public class MapService
         _dataService = dataService;
     }
 
-    public async Task<List<RiskArea>> GetRiskZonesAsync()
+    public async Task<List<RiskArea>> GetRiskAreasAsync()
     {
         // Här kan du lägga till logik för att t.ex. bara hämta zoner nära användaren
-        return await _dataService.GetRiskZonesAsync();
+        return await _dataService.GetRiskAreasAsync();
     }
 }
