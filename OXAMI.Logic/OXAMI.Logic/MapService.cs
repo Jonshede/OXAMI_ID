@@ -1,10 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using OXAMI.Data;
 
-namespace OXAMI.Logic
+namespace OXAMI.Logic;
+
+public class MapService
 {
-    internal class MapService
+    private readonly DataService _dataService;
+
+    public MapService(DataService dataService)
     {
+        _dataService = dataService;
+    }
+
+    public async Task<List<RiskArea>> GetRiskZonesAsync()
+    {
+        // Här kan du lägga till logik för att t.ex. bara hämta zoner nära användaren
+        return await _dataService.GetRiskZonesAsync();
     }
 }

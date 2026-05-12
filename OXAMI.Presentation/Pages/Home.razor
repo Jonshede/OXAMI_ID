@@ -1,7 +1,24 @@
 ﻿@page "/"
+@using OXAMI.Logic
+@inject IJSRuntime JS
+@inject MapService MapService
 
-<PageTitle>Home</PageTitle>
+<div class="map-container">
+    <div id="google-map" style="height: 100%; width: 100%;">
+        <div class="p-4 text-center">Laddar lägesbild...</div>
+    </div>
+</div>
 
-<h1>Hello, world!</h1>
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Hämta zoner via logiklagret (som i sin tur hämtar från datalagret)
+            var zones = await MapService.GetRiskZonesAsync();
 
-Welcome to your new app.
+            // Anropa JavaScript-funktionen i mapFunctions.js
+            await JS.InvokeVoidAsync("initMap", zones);
+        }
+    }
+}

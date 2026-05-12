@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OXAMI.Data.Services
+namespace OXAMI.Data
 {
-    internal class Class1
+    internal class JsonReader
     {
     }
 }

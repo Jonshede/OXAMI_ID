@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OXAMI.Data.Models
+namespace OXAMI.Data
 {
     public class ActionPattern
     {
