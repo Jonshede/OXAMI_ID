@@ -10,8 +10,14 @@ namespace OXAMI.Data
         {
             _httpClient = httpClient;
         }
+        private class DataRoot
+        {
+            public List<RiskArea> RiskAreas { get; set; } = new();
+            public List<ActionPattern> ActionPatterns { get; set; } = new();
+            public List<ChecklistItem> Checklists { get; set; } = new();
+        }
 
-        public async Task<List<RiskArea>> GetRiskZonesAsync()
+        public async Task<List<RiskArea>> GetRiskAreasAsync()
         {
             try
             {
@@ -21,17 +27,9 @@ namespace OXAMI.Data
             }
             catch (Exception)
             {
-                // Vid fel (t.ex. offline utan cache) returneras en tom lista för att undvika krasch
+                Console.WriteLine($"Fel vid inläsning av JSON.");
                 return new List<RiskArea>();
             }
-        }
-
-        // Hjälpklass för att matcha JSON-strukturen
-        private class DataRoot
-        {
-            public List<RiskArea> RiskAreas { get; set; } = new();
-            public List<ActionPattern> ActionPatterns { get; set; } = new();
-            public List<ChecklistItem> Checklists { get; set; } = new();
         }
     }
 }

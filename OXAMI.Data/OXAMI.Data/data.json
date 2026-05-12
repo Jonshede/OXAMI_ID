@@ -1,15 +1,23 @@
 {
-  "riskZones": [
+  "RiskAreas": [
     {
       "id": 1,
+      "title": "Skogsbrand",
+      "description": "Kraftig rökutveckling vid Rya åsar. Håll fönster stängda.",
       "latitude": 57.721,
       "longitude": 12.940,
-      "title": "Historiskt övningsområde",
-      "description": "Området har tidigare använts för militär övning. Risk för kvarlämnad ammunition kan förekomma i terrängen.",
-      "severity": "2 - mellan"
+      "severity": "Hög"
+    },
+    {
+      "id": 2,
+      "title": "Översvämning",
+      "description": "Vattennivåerna stiger vid Viskan. Risk för framkomlighetsproblem.",
+      "latitude": 57.715,
+      "longitude": 12.930,
+      "severity": "Medel"
     }
   ],
-  "educationModules": [
+  "ActionPatterns": [
     {
       "id": 101,
       "category": "Larm",
@@ -21,7 +29,7 @@
       ]
     }
   ],
-  "checklist": [
+  "ChecklistItems": [
     {
       "id": 201,
       "itemName": "Vevradio",
@@ -36,5 +44,3 @@
     }
   ]
 }
-
-OBS PLACEHOLDER

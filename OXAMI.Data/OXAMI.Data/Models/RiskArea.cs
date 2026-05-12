@@ -11,6 +11,6 @@ namespace OXAMI.Data
         public double Longitude { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public enum Severity { Låg = 1, Medel = 2, Hög = 3 }
+        public required string Severity { get; set; }
     }
 }
