@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\OXAMI.Data\OXAMI.Data\OXAMI.Data.csproj" />
+  </ItemGroup>
+
 </Project>
