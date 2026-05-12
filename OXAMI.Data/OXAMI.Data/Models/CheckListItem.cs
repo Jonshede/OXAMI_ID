@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OXAMI.Data.Models
+namespace OXAMI.Data
 {
-    public class CheckListItem
+    public class ChecklistItem
     {
         public int Id { get; set; }
         public string ItemName { get; set; }

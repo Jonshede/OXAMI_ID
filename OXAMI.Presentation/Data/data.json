@@ -1,0 +1,40 @@
+{
+  "riskZones": [
+    {
+      "id": 1,
+      "latitude": 57.721,
+      "longitude": 12.940,
+      "title": "Historiskt övningsområde",
+      "description": "Området har tidigare använts för militär övning. Risk för kvarlämnad ammunition kan förekomma i terrängen.",
+      "severity": "2 - mellan"
+    }
+  ],
+  "educationModules": [
+    {
+      "id": 101,
+      "category": "Larm",
+      "title": "När signalen 'Hesa Fredrik' ljuder",
+      "steps": [
+        "1. Sök skydd inomhus omedelbart.",
+        "2. Stäng dörrar, fönster och ventilation.",
+        "3. Lyssna på Sveriges Radio P4 för officiell information."
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": 201,
+      "itemName": "Vevradio",
+      "category": "Information",
+      "isChecked": false
+    },
+    {
+      "id": 202,
+      "itemName": "Vattendunk (10L)",
+      "category": "Vatten",
+      "isChecked": true
+    }
+  ]
+}
+
+OBS PLACEHOLDER

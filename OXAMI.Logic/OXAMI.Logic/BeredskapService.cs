@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OXAMI.Logic
 {
-    internal class BeredskapService
+    public class BeredskapService
     {
     }
 }

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OXAMI.Presentation</title>
+    <title>OXAMI - Beredskapsstöd</title>
     <base href="/" />
     <link rel="stylesheet" href="css/app.css" />
     <link href="manifest.webmanifest" rel="manifest" />
 </head>
-
 <body>
+    <div id="app">
+        <div class="loading-screen" style="display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+            <p>Laddar system för civil beredskap...</p>
+        </div>
+    </div>
+
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
+        Ett oväntat fel har inträffat.
+        <a href="." class="reload">Ladda om</a>
         <span class="dismiss">🗙</span>
     </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfsHp6wfiJR46zpCGvCAbmyaZPuzWm6w0"></script>
+
+    <script src="js/mapFunctions.js"></script>
+
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
-
 </html>
