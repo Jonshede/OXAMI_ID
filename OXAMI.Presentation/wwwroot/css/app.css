@@ -75,6 +75,7 @@ main {
     flex: 1;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 /* MAIN */
 
@@ -131,7 +132,7 @@ main {
 /* FAB */
 .fab-button {
     position: absolute;
-    bottom: 90px;
+    bottom: 30px;
     left: 20px;
     width: 56px;
     height: 56px;
@@ -218,6 +219,26 @@ main {
     background-color: #ffd100;
     color: #333; /* Mörk text för god läsbarhet mot gul bakgrund */
 }
+
+/* KOORDINATER */
+.coordinate-overlay {
+    position: absolute;
+    top: 15px; /* Placerar rutan direkt under din header, inuti kartområdet */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 47, 95, 0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1005; /* Högre än kartans standardelement (1000) */
+    white-space: nowrap;
+    pointer-events: none;
+}
+/* KOORDINATER */
 
 /* Handles error-placement */
 #blazor-error-ui {

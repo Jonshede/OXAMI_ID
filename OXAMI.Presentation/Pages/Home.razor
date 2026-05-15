@@ -4,8 +4,10 @@
 @inject MapService MapService
 
 <div class="map-container">
+    <div class="coordinate-overlay" id="coordinate-box">
+        Hämtar GPS-position...
+    </div>
     <div id="leaflet-map" style="height: 100%; width: 100%;"></div>
-
     <button class="fab-button" @onclick="ToggleEventList">!</button>
 
     @if (showEvents)
